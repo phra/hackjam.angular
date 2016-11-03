@@ -9,36 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SideBarComponent = (function () {
-    function SideBarComponent() {
-        this.sidebarHasBeenToggled = new core_1.EventEmitter();
-        this.searchTermChanged = new core_1.EventEmitter();
+var SidebarComponent = (function () {
+    function SidebarComponent() {
         this.navClosed = true;
+        this.searchTerm = "";
+        this.search = new core_1.EventEmitter();
     }
-    SideBarComponent.prototype.toggleSideBar = function () {
+    SidebarComponent.prototype.toggleSideBar = function () {
         this.navClosed = !this.navClosed;
-        this.sidebarHasBeenToggled.emit(this.navClosed);
-    };
-    SideBarComponent.prototype.search = function (searchTerm) {
-        this.searchTermChanged.emit(searchTerm);
     };
     __decorate([
         core_1.Output(), 
-        __metadata('design:type', Object)
-    ], SideBarComponent.prototype, "sidebarHasBeenToggled", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], SideBarComponent.prototype, "searchTermChanged", void 0);
-    SideBarComponent = __decorate([
+        __metadata('design:type', core_1.EventEmitter)
+    ], SidebarComponent.prototype, "search", void 0);
+    SidebarComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'bs-sidebar',
+            selector: 'sidebar',
             templateUrl: 'sidebar.template.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], SideBarComponent);
-    return SideBarComponent;
+    ], SidebarComponent);
+    return SidebarComponent;
 }());
-exports.SideBarComponent = SideBarComponent;
+exports.SidebarComponent = SidebarComponent;
 //# sourceMappingURL=sidebar.component.js.map

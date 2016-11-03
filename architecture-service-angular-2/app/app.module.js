@@ -13,13 +13,20 @@ var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
+// Components
+var booklist_component_1 = require('./components/book/booklist.component');
+var header_component_1 = require('./components/header/header.component');
+var menu_component_1 = require('./components/menu/menu.component');
+var sidebar_component_1 = require('./components/sidebar/sidebar.component');
+// Pipes
+var filter_books_pipe_1 = require('./pipes/filter-books.pipe');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent],
+            declarations: [app_component_1.AppComponent, booklist_component_1.BookListComponent, header_component_1.HeaderComponent, menu_component_1.MenuComponent, sidebar_component_1.SidebarComponent, filter_books_pipe_1.FilterBooksPipe],
             bootstrap: [app_component_1.AppComponent] // Module you need to bootstrap
         }), 
         __metadata('design:paramtypes', [])

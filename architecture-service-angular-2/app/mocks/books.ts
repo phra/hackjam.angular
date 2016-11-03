@@ -1,9 +1,10 @@
+import { Category } from './categories';
 const images = 'assets/img';
 
 export class Book {
   title: String;
   cover: String;
-  category: String;
+  category: String | Category;
 }
 
 export const mockBooks: Book [] = [

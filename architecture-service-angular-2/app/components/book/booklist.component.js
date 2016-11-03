@@ -9,25 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var categories_1 = require('../../mocks/categories');
 var BookListComponent = (function () {
     function BookListComponent() {
     }
-    BookListComponent.prototype.getBookDetails = function (book) {
-        console.log(book);
-    };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Object)
+        __metadata('design:type', Array)
     ], BookListComponent.prototype, "books", void 0);
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Object)
-    ], BookListComponent.prototype, "navClosed", void 0);
+        __metadata('design:type', String)
+    ], BookListComponent.prototype, "searchTerm", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', categories_1.Category)
+    ], BookListComponent.prototype, "selectedCategory", void 0);
     BookListComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'bs-book-list',
-            templateUrl: 'booklist.template.html',
+            selector: 'book-list',
+            templateUrl: 'booklist.template.html'
         }), 
         __metadata('design:paramtypes', [])
     ], BookListComponent);

@@ -1,0 +1,8 @@
+<!--List of books-->
+<section class="gallery" [class.filter-is-visible]="">
+    <ul>
+        <li *ngFor="let book of books | filterBooks : selectedCategory : searchTerm">
+            <img [src]="book.cover" (click)="clicked"/>
+        </li>
+    </ul>
+</section>

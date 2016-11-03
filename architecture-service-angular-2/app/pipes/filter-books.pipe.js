@@ -9,27 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var MenuComponent = (function () {
-    function MenuComponent() {
-        this.changeCategory = new core_1.EventEmitter();
+var FilterBooksPipe = (function () {
+    function FilterBooksPipe() {
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Array)
-    ], MenuComponent.prototype, "categories", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', core_1.EventEmitter)
-    ], MenuComponent.prototype, "changeCategory", void 0);
-    MenuComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'menu',
-            templateUrl: 'menu.template.html'
-        }), 
+    FilterBooksPipe.prototype.transform = function (allBooks, category, searchTerm) {
+        return allBooks.filter(function (book) {
+            return (!category || book.category === category.name)
+                && (!searchTerm
+                    || book.title.toLowerCase().includes(searchTerm)
+                    || book.title.toLocaleLowerCase().includes(searchTerm));
+        });
+    };
+    FilterBooksPipe = __decorate([
+        core_1.Pipe({ name: 'filterBooks' }), 
         __metadata('design:paramtypes', [])
-    ], MenuComponent);
-    return MenuComponent;
+    ], FilterBooksPipe);
+    return FilterBooksPipe;
 }());
-exports.MenuComponent = MenuComponent;
-//# sourceMappingURL=menu.component.js.map
+exports.FilterBooksPipe = FilterBooksPipe;
+//# sourceMappingURL=filter-books.pipe.js.map

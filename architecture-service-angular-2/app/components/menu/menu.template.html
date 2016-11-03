@@ -1,0 +1,13 @@
+<!--Menu filters-->
+<div class="tab-filter-wrapper">
+    <div class="tab-filter">
+        <ul>
+            <li class="placeholder">
+                <a data-type="all" href="#0">All</a>
+            </li>
+            <li *ngFor="let category of categories">
+                <a [class.selected]="category.selected" (click)="changeCategory.emit(category)" href="#0">{{category.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

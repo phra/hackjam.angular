@@ -15,14 +15,13 @@ var AppComponent = (function () {
     function AppComponent() {
         this.books = books_1.mockBooks;
         this.categories = categories_1.categories;
-        this.navClosed = true;
-        this.searchTerm = "";
         this.title = "Bookstore by Hackages";
     }
     AppComponent.prototype.clicked = function () {
         console.log('Will be implemented in the next section');
     };
     AppComponent.prototype.changeCategory = function (selectedCategory) {
+        this.selectedCategory = selectedCategory;
         this.categories = this.categories.map(function (category) {
             if (category === selectedCategory)
                 category.selected = true;
@@ -30,25 +29,9 @@ var AppComponent = (function () {
                 category.selected = false;
             return category;
         });
-        this.filterBooks(selectedCategory);
     };
-    AppComponent.prototype.filterBooks = function (category) {
-        if (category.name === "All") {
-            this.books = books_1.mockBooks;
-            return;
-        }
-        this.books = books_1.mockBooks.filter(function (book) { return book.category === category.name; });
-    };
-    AppComponent.prototype.search = function () {
-        var _this = this;
-        this.books = books_1.mockBooks.filter(function (book) {
-            var searchTerm = _this.searchTerm.toLowerCase();
-            return book.title.toLowerCase().includes(searchTerm) ||
-                book.category.toLocaleLowerCase().includes(searchTerm);
-        });
-    };
-    AppComponent.prototype.toggleSideBar = function () {
-        this.navClosed = !this.navClosed;
+    AppComponent.prototype.search = function (str) {
+        this.searchTerm = str;
     };
     AppComponent = __decorate([
         core_1.Component({
