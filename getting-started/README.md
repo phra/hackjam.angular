@@ -27,21 +27,6 @@ This application doesn't work :(
 
 A live introduction from us!!
 
-## Here are few questions you should be able to answer by the end of this session
-
-### What is a module?
-
-### How do you define a component?
-
-### How do you bootstrap an application?
-
-### How does property binding work?
-
-### Rebuild this app using angular-cli
- install `angular-cli`: `npm i angular-cli@latest -g`
-
- Here you'll find more information about [`angular-cli`](https://github.com/angular/angular-cli.git)
-
 ## TODO: Features to implement in your app
 
 [Final app](http://hackjam.hackages.io)
