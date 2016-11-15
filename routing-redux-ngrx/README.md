@@ -29,6 +29,9 @@ This application doesn't work :(
     that url. For example: when you click on `web`, your url should match `localhost:port/web`
     and this will also filter the books.
 
+    Hint 1: Replace the book list component by the outlet router
+    turn your book list into a smart component 
+
     NB: you can find more information here: https://angular.io/docs/ts/latest/guide/router.html  
     
     Warning: If you have any issues with `Observable` then you should definitely call us...

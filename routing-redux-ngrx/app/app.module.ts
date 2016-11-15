@@ -17,6 +17,6 @@ import { SideBarComponent } from './components/sidebar/sidebar.component';
     MenuComponent,
     SideBarComponent,
   ],
-  bootstrap: [ ]
+  bootstrap: []
 })
 export class AppModule { }

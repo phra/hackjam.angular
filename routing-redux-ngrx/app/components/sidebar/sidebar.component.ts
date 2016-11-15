@@ -6,7 +6,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
     templateUrl: 'sidebar.template.html'
 })
 export class SideBarComponent {
-    @Output() sidebarHasBeenToggled;
+    @Output('sidebarHasBeenToggled') toggled = new EventEmitter;
     @Output() searchTermChanged;
     
     navClosed: boolean = true;
@@ -15,5 +15,7 @@ export class SideBarComponent {
         this.navClosed = !this.navClosed;
     }
 
-    search(searchTerm) {}     
+    search(searchTerm) {
+        this.searchTermChanged.emit(searchTerm);
+    }     
 }

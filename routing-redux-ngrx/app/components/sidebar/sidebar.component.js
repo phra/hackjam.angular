@@ -11,16 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SideBarComponent = (function () {
     function SideBarComponent() {
+        this.toggled = new core_1.EventEmitter;
         this.navClosed = true;
     }
     SideBarComponent.prototype.toggleSideBar = function () {
         this.navClosed = !this.navClosed;
     };
-    SideBarComponent.prototype.search = function (searchTerm) { };
+    SideBarComponent.prototype.search = function (searchTerm) {
+        this.searchTermChanged.emit(searchTerm);
+    };
     __decorate([
-        core_1.Output(), 
+        core_1.Output('sidebarHasBeenToggled'), 
         __metadata('design:type', Object)
-    ], SideBarComponent.prototype, "sidebarHasBeenToggled", void 0);
+    ], SideBarComponent.prototype, "toggled", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
