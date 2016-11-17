@@ -1,6 +1,6 @@
 <section [class.filter-is-visible]="navClosed" class="gallery">
     <ul>
-        <li *ngFor="let book of books">
+        <li *ngFor="let book of books | async">
             <img [src]="book.cover" (click)="getBookDetails(book)"/>
         </li>
     </ul>

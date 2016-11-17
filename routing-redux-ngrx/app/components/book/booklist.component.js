@@ -9,27 +9,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var common_1 = require('@angular/common');
+var store_1 = require('@ngrx/store');
+//import 'rxjs/add/operator/map';
+var books_effect_1 = require('../../effects/books.effect');
 var BookListComponent = (function () {
-    function BookListComponent() {
+    function BookListComponent(route, location, store) {
+        this.route = route;
+        this.location = location;
+        this.store = store;
+        this.books = store.select('booksReducer');
+        this.category = store.select('categoryReducer');
     }
+    BookListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        //this.appService.getBooks().then(books => this.books = books);
+        /*this.route.params
+            .switchMap((params: Params) => this.appService.getBooks(params['category']))
+            .subscribe((books: Book[]) => this.books = books);*/
+        this.route.params
+            .subscribe(function (params) { return _this.store.dispatch({
+            type: books_effect_1.FILTERBOOKSEFFECT,
+            payload: params['category']
+        }); });
+    };
     BookListComponent.prototype.getBookDetails = function (book) {
         console.log(book);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], BookListComponent.prototype, "books", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], BookListComponent.prototype, "navClosed", void 0);
     BookListComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'bs-book-list',
             templateUrl: 'booklist.template.html',
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, common_1.Location, store_1.Store])
     ], BookListComponent);
     return BookListComponent;
 }());

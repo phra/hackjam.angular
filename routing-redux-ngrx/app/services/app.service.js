@@ -14,10 +14,11 @@ var categories_1 = require('../mocks/categories');
 var AppService = (function () {
     function AppService() {
     }
-    AppService.prototype.getBooks = function () {
+    AppService.prototype.getBooks = function (category) {
+        if (category === void 0) { category = 'All'; }
         return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                resolve(books_1.mockBooks);
+                resolve(books_1.mockBooks.filter(function (book) { return category === 'All' || book.category === category; }));
             }, 1000);
         });
     };

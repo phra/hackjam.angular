@@ -2,12 +2,12 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'sidebar',
+    selector: 'bs-sidebar',
     templateUrl: 'sidebar.template.html'
 })
 export class SideBarComponent {
-    @Output('sidebarHasBeenToggled') toggled = new EventEmitter;
-    @Output() searchTermChanged;
+    @Output() toggled = new EventEmitter();
+    @Output() searchTermChanged = new EventEmitter();;
     
     navClosed: boolean = true;
 

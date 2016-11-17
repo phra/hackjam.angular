@@ -16,7 +16,7 @@ var AppComponent = (function () {
         this.appService = appService;
         this.navClosed = true;
         this.defaultState = new appstate_1.AppState();
-        this.changeCategory = this.changeCategory.bind(this);
+        //this.changeCategory = this.changeCategory.bind(this);
     }
     AppComponent.prototype.getBookDetails = function () {
         console.log('Will be implemented in the next section');
@@ -31,33 +31,6 @@ var AppComponent = (function () {
             _this.categories = categories;
             _this.defaultState.categories = categories;
         });
-    };
-    AppComponent.prototype.changeCategory = function (selectedCategory) {
-        this.categories = this.categories.map(function (category) {
-            if (category === selectedCategory)
-                category.selected = true;
-            else
-                category.selected = false;
-            return category;
-        });
-        this.filterBooks(selectedCategory);
-    };
-    AppComponent.prototype.filterBooks = function (category) {
-        if (category.name === "All") {
-            this.books = this.defaultState.books;
-            return;
-        }
-        this.books = this.defaultState.books.filter(function (book) { return book.category === category.name; });
-    };
-    AppComponent.prototype.search = function (searchTerm) {
-        this.books = this.defaultState.books.filter(function (book) {
-            searchTerm = searchTerm.toLowerCase();
-            return book.title.toLowerCase().includes(searchTerm) ||
-                book.category.toLocaleLowerCase().includes(searchTerm);
-        });
-    };
-    AppComponent.prototype.toggleSidebar = function (open) {
-        this.navClosed = open;
     };
     AppComponent = __decorate([
         core_1.Component({

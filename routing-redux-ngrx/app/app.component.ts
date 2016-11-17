@@ -16,12 +16,12 @@ export class AppComponent {
   navClosed: boolean = true;
   defaultState = new AppState();
 
-  getBookDetails(): void {
-    console.log('Will be implemented in the next section');
+  constructor(private appService: AppService){
+    //this.changeCategory = this.changeCategory.bind(this);
   }
 
-  constructor(private appService: AppService){
-    this.changeCategory = this.changeCategory.bind(this);
+  getBookDetails(): void {
+    console.log('Will be implemented in the next section');
   }
 
   public ngOnInit(){
@@ -36,7 +36,7 @@ export class AppComponent {
     });
   }
 
-  changeCategory(selectedCategory: Category): void {
+  /*changeCategory(selectedCategory: Category): void {
     this.categories = this.categories.map(category => {
       if(category === selectedCategory) 
         category.selected = true;
@@ -66,5 +66,5 @@ export class AppComponent {
 
   toggleSidebar(open) {
     this.navClosed = open;
-  }
+  }*/
 }

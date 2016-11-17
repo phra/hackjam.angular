@@ -1,16 +1,18 @@
 <bs-header></bs-header>
 <main class="main-content">
     <!--Menu filters-->
-    <bs-menu categories="categories" (changeCategory)="changeCategory"></bs-menu>
+    <bs-menu [categories]="categories" (changeCategory)="changeCategory"></bs-menu>
 
     <!--List of books-->
     <!-- Replace the book list component by the outlet router
     turn your book list into a smart component -->
-    <bs-book-list dataSource="books" [navClosed]="!navClosed"></bs-book-list>
+    <router-outlet></router-outlet>
+
+    <!--bs-book-list [books]="books" [navClosed]="!navClosed"></bs-book-list-->
 
     <!--Sidebar navigation-->
     <bs-sidebar 
-        (sidebarHasBeenToggled)="toggleSidebar($event)"
+        (toggled)="toggleSidebar($event)"
         (searchTermChanged)="search($event)"
         ></bs-sidebar>
 </main>

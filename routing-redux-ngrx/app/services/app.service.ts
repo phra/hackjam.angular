@@ -6,10 +6,10 @@ import { Book } from '../types/book';
 
 @Injectable()
 export class AppService {
-    getBooks(): Promise<Book[]> {
+    getBooks(category = 'All'): Promise<Book[]> {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(mockBooks)
+                resolve(mockBooks.filter(book => category === 'All' || book.category === category))
             }, 1000)
         });
     }

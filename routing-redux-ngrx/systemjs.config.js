@@ -21,6 +21,10 @@
       '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+      '@ngrx/core': 'npm:@ngrx/core/bundles/core.umd.js',
+      '@ngrx/store': 'npm:@ngrx/store/bundles/store.umd.js',
+      '@ngrx/effects': 'npm:@ngrx/effects/bundles/effects.umd.js',
+      '@ngrx/store-devtools': 'npm:@ngrx/store-devtools/bundles/store-devtools.umd.js',
       // other libraries
       'rxjs':                       'npm:rxjs',
       'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
