@@ -1,4 +1,8 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { AppState } from '../../types/appstate';
+import { Store } from '@ngrx/store';
+import { SEARCHBOOKS } from '../../reducers/books.reducer';
+
 
 @Component({
     moduleId: module.id,
@@ -6,16 +10,19 @@ import { Component, Output, EventEmitter } from '@angular/core';
     templateUrl: 'sidebar.template.html'
 })
 export class SideBarComponent {
-    @Output() toggled = new EventEmitter();
-    @Output() searchTermChanged = new EventEmitter();;
-    
     navClosed: boolean = true;
+
+    constructor(private store: Store<AppState>) {
+    }
 
     toggleSideBar(): void {
         this.navClosed = !this.navClosed;
     }
 
     search(searchTerm) {
-        this.searchTermChanged.emit(searchTerm);
+        this.store.dispatch({
+            type: SEARCHBOOKS,
+            payload: searchTerm
+        });
     }     
 }

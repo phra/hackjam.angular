@@ -28,7 +28,7 @@ var BooksEffects = (function () {
             .ofType(exports.FILTERBOOKSEFFECT)
             .map(effects_1.toPayload)
             .switchMap(function (payload) { return _this.appService.getBooks(payload); })
-            .map(function (books) { return ({ type: books_reducer_1.REFRESHBOOKS, payload: books }); })
+            .map(function (books) { return ({ type: books_reducer_1.REFRESHBOOKS, payload: { books: books, filteredBooks: books } }); })
             .catch(function () { return Observable_1.Observable.of({ type: exports.FILTERBOOKSEFFECTFAILED }); });
     }
     __decorate([

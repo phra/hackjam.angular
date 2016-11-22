@@ -23,7 +23,7 @@ export class BooksEffects {
       .map(toPayload)
       .switchMap(payload => this.appService.getBooks(payload))
         // If successful, dispatch success action with result
-        .map(books => ({ type: REFRESHBOOKS, payload: books }))
+        .map(books => ({ type: REFRESHBOOKS, payload: {books, filteredBooks: books} }))
         // If request fails, dispatch failed action
         .catch(() => Observable.of({ type: FILTERBOOKSEFFECTFAILED }));
 }

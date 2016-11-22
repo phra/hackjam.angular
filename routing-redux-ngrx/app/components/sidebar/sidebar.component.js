@@ -9,34 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var store_1 = require('@ngrx/store');
+var books_reducer_1 = require('../../reducers/books.reducer');
 var SideBarComponent = (function () {
-    function SideBarComponent() {
-        this.toggled = new core_1.EventEmitter();
-        this.searchTermChanged = new core_1.EventEmitter();
+    function SideBarComponent(store) {
+        this.store = store;
         this.navClosed = true;
     }
-    ;
     SideBarComponent.prototype.toggleSideBar = function () {
         this.navClosed = !this.navClosed;
     };
     SideBarComponent.prototype.search = function (searchTerm) {
-        this.searchTermChanged.emit(searchTerm);
+        this.store.dispatch({
+            type: books_reducer_1.SEARCHBOOKS,
+            payload: searchTerm
+        });
     };
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], SideBarComponent.prototype, "toggled", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], SideBarComponent.prototype, "searchTermChanged", void 0);
     SideBarComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'bs-sidebar',
             templateUrl: 'sidebar.template.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [store_1.Store])
     ], SideBarComponent);
     return SideBarComponent;
 }());

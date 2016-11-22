@@ -36,35 +36,4 @@ export class AppComponent {
     });
   }
 
-  /*changeCategory(selectedCategory: Category): void {
-    this.categories = this.categories.map(category => {
-      if(category === selectedCategory) 
-        category.selected = true;
-      else  
-        category.selected = false;
-      return category;
-    });
-
-    this.filterBooks(selectedCategory);
-  }
-
-  filterBooks(category: Category): void {
-    if(category.name === "All") {
-      this.books = this.defaultState.books;
-      return;
-    }
-    this.books = this.defaultState.books.filter(book => book.category === category.name);
-  }
-
-  search(searchTerm: string): void {
-    this.books = this.defaultState.books.filter(book => {
-      searchTerm = searchTerm.toLowerCase();
-      return book.title.toLowerCase().includes(searchTerm) ||
-              book.category.toLocaleLowerCase().includes(searchTerm);
-    });
-  }
-
-  toggleSidebar(open) {
-    this.navClosed = open;
-  }*/
 }

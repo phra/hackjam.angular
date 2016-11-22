@@ -12,7 +12,6 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
 var store_1 = require('@ngrx/store');
-//import 'rxjs/add/operator/map';
 var books_effect_1 = require('../../effects/books.effect');
 var BookListComponent = (function () {
     function BookListComponent(route, location, store) {
@@ -20,14 +19,9 @@ var BookListComponent = (function () {
         this.location = location;
         this.store = store;
         this.books = store.select('booksReducer');
-        this.category = store.select('categoryReducer');
     }
     BookListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //this.appService.getBooks().then(books => this.books = books);
-        /*this.route.params
-            .switchMap((params: Params) => this.appService.getBooks(params['category']))
-            .subscribe((books: Book[]) => this.books = books);*/
         this.route.params
             .subscribe(function (params) { return _this.store.dispatch({
             type: books_effect_1.FILTERBOOKSEFFECT,

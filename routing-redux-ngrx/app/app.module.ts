@@ -13,21 +13,20 @@ import { BookListComponent } from './components/book/booklist.component';
 import { SideBarComponent } from './components/sidebar/sidebar.component';
 import { AppService } from './services/app.service';
 import { booksReducer, INITIAL_STATE as INITIAL_STATE_BOOKS } from './reducers/books.reducer';
-import { categoriesReducer, INITIAL_STATE as INITIAL_STATE_CATEGORIES } from './reducers/categories.reducer';
 import { BooksEffects } from './effects/books.effect';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 const appRoutes: Routes = [
   { path: ':category', component: BookListComponent },
-  { path: '', component: BookListComponent, data: { category: INITIAL_STATE_CATEGORIES } },
-  { path: '**', component: BookListComponent, data: { category: INITIAL_STATE_CATEGORIES } }
+  { path: '', component: BookListComponent, data: { category: 'All' } },
+  { path: '**', component: BookListComponent, data: { category: 'All' } }
 ];
 
 @NgModule({
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    StoreModule.provideStore({ booksReducer, categoriesReducer }),
+    StoreModule.provideStore({ booksReducer }),
     EffectsModule.runAfterBootstrap(BooksEffects),
     StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
