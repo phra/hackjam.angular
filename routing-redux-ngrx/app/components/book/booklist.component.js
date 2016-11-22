@@ -36,6 +36,7 @@ var BookListComponent = (function () {
             moduleId: module.id,
             selector: 'bs-book-list',
             templateUrl: 'booklist.template.html',
+            changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, common_1.Location, store_1.Store])
     ], BookListComponent);

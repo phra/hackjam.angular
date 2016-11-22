@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Book } from '../../types/book';
 import { AppState } from '../../types/appstate';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -11,6 +11,7 @@ import { FILTERBOOKSEFFECT } from '../../effects/books.effect';
     moduleId: module.id,
     selector: 'bs-book-list',
     templateUrl: 'booklist.template.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookListComponent implements OnInit {
     private books: Observable<Book[]>;
